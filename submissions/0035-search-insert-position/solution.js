@@ -1,9 +1,22 @@
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
 var searchInsert = function(nums, target) {
-    let left = 0
-    let right = nums.length
-        while (left<right) {
-        let middle = Math.floor((left + right) / 2);
-         (nums[middle] < target)?left = middle + 1:right = middle
-         }
-    return left;
-}
+    let start=0
+    let end=nums.length - 1
+    while (start <= end){
+        let middle = Math.floor((start+end)/2)
+        if(nums[middle]==target){
+            return middle;
+        }
+        if(nums[middle]<target){
+            start = middle+1
+        }
+        else{
+            end = middle - 1
+        }
+    }
+    return start
+};
