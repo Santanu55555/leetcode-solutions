@@ -3,24 +3,20 @@
  * @return {boolean}
  */
 var isValid = function(s) {
-      const map = {
+    let obj = {
         '(': ')',
         '{': '}',
         '[': ']',
     }
-    
-    let stack = [];
-    
-    for (let i = 0; i < s.length; i++) {
-        const currentCharacter = s[i];
-        
-        if (map[currentCharacter]) {
-            stack.push(map[currentCharacter])
+    let stack =[]
+    for(let i=0;i<s.length;i++){
+        let currentCharacter = s[i]
+        if(obj[currentCharacter]){
+            stack.push(obj[currentCharacter])
         }
-        else {
-            if (currentCharacter !== stack.pop()) return false;
-        }
+       else {
+         if (currentCharacter !== stack.pop()) return false; 
+         }
     }
-    
-    return stack.length === 0;
-}
+    return stack.length===0
+};
